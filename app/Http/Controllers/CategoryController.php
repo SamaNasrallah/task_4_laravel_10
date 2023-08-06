@@ -78,8 +78,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+      if (Category::exists($category)) {
         $category->delete();
         return redirect()->route('category.index')
         ->with('success','Category Deleted successfully');
+    } else {
+        return response('Category Not Found', 404);
+    }
     }
 }

@@ -66,8 +66,8 @@ class CategoryController extends Controller
             'name' => 'required',
         ]);
         $category = Category::findOrFail($id);
-    $category->name = $request->input('name');
-    $category->save();
+        $category->name = $request->input('name');
+        $category->save();
       
         return redirect()->route('category.index')
         ->with('success','category Updated successfully');
